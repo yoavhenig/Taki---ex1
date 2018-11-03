@@ -7,7 +7,8 @@ using namespace std;
 class Game {
 private:
 	//private members and functions
-	Player current_player;
+	Player* current_player;
+	Player* _winner;
 	Card current_card;
 	size_t p_num;
 	vector<Player> v_players;
