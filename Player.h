@@ -10,9 +10,6 @@ private:
 
 public:
 	//public members
-	Player(string name, int num_of_cards);
-	~Player();
-
 	bool play(Card&);
 };
 #endif

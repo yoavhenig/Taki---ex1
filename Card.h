@@ -21,3 +21,9 @@ public:
 };
 Card generate_card(); //return random card
 #endif
+
+
+
+
+
+
