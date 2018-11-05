@@ -10,17 +10,18 @@ private:
 	Player* current_player;
 	Player* _winner;
 	Card current_card;
-	size_t p_num;
+	int current_index=0;
+	int p_num;
 	vector<Player> v_players;
+
 	void init();
 	void turn();
+	void next();
+	void winPrint();
 
 public:
 	//public members and functions
-	Game(){
-		Card current_card;
-		std::vector<Player> v_players;
-	};
+	Game(){};
 	void start();
 
 	Card& getCurrentCard(){return current_card;}
