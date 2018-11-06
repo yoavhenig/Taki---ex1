@@ -2,7 +2,7 @@ CXX = g++
 FLAGS = -std=c++11
 
 a.out: main.o Card.o Game.o Player.o
-	$(CXX) $(FLAGS) ./ a.out
+	$(CXX) $(FLAGS) main.o Card.o Game.o Player.o -o a.out
 main.o: main.cpp
 	$(CXX) $(FLAGS) -c main.cpp
 Card.o: Card.cpp Card.h
