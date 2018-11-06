@@ -26,7 +26,7 @@ private:
 
 public:
 	//public members and functions
-	Game(){};
+	Game(){}
 	void start();
 
 	Card& getCurrentCard(){return current_card;}

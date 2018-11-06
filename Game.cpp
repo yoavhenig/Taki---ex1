@@ -35,7 +35,7 @@ bool Game::turn(){
 
 void Game::specialNext(){
   if(dir==0){current_index=(current_index+1)%p_num;}
-  if(dir==1){current_index=(current_index-1)%p_num;}/////////////////////TBD: COMPLETE!!!!!!!!!!!!!!!!
+  if(dir==1){current_index=(current_index-1+p_num)%p_num;}
 
   current_player=&v_players.at(current_index);
 }
@@ -55,9 +55,9 @@ void Game::next(){  //check who is next method
 
     if(dir==1){
       if(current_card.get_sign()==STOP){
-        current_index=(current_index-2)%p_num;
+        current_index=(current_index-2+p_num)%p_num;
       }
-      else{current_index=(current_index-1)%p_num;}
+      else{current_index=(current_index-1+p_num)%p_num;}
     }
 }
   current_player=&v_players.at(current_index);
