@@ -1,11 +1,15 @@
-TARGET = a.out
-SOURCES = Card.cpp Game.cpp main.cpp Player.cpp Card.h Game.h Player.h
-CPP = Card.cpp Game.cpp main.cpp Player.cpp
-CC = g++ -std=c++11
+CXX = g++
+FLAGS = -std=c++11
 
-$(TARGET) : $(SOURCES)
-		$(CC) $(CPP) -o $(TARGET)
-
-
-# taki.out : Card.cpp Game.cpp main.cpp Player.cpp Card.h Game.h Player.h
-# 	g++ Card.cpp Game.cpp main.cpp Player.cpp -o taki.out
+a.out: main.o Card.o Game.o Player.o
+	$(CXX) $(FLAGS) ./ a.out
+main.o: main.cpp
+	$(CXX) $(FLAGS) -c main.cpp
+Card.o: Card.cpp Card.h
+	$(CXX) $(FLAGS) -c Card.cpp
+Player.o: Player.cpp Player.h
+	$(CXX) $(FLAGS) -c Player.cpp
+Game.o: Game.cpp Game.h
+	$(CXX) $(FLAGS) -c Game.cpp
+clean:
+	rm *.o a.out

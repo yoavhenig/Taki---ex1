@@ -20,7 +20,7 @@ public:
 		for (auto i = 0; i < num_of_cards; i++) {
 			v_cards.push_back(generate_card());
 		}
-	};
+	}
 
 	Player(const Player& player){
 		this->name=player.name; this->num_of_cards=player.num_of_cards;

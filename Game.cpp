@@ -29,12 +29,18 @@ void Game::init(){
   current_player=&v_players.at(current_index); //init first player - the first place at v_players
 }
 
-void Game::turn(){
-  current_player->play(current_card);
+bool Game::turn(){
+  return current_player->play(current_card);
+}
+
+void Game::specialNext(){
+  if(dir==0){current_index=(current_index+1)%p_num;}
+  if(dir==1){current_index=(current_index-1)%p_num;}/////////////////////TBD: COMPLETE!!!!!!!!!!!!!!!!
+
+  current_player=&v_players.at(current_index);
 }
 
 void Game::next(){  //check who is next method
-  static bool dir=0;  //the direction is forword
   if(current_card.get_sign()!=PLUS){
     if(current_card.get_sign()==CD){
       dir=!dir;  //the direction is backward
@@ -69,11 +75,18 @@ void Game::start(){
 
   while(!_winner){
     std::cout << "current: " <<current_card<<'\n';
-    turn();
-    if(current_player->_isWinner()){
-        _winner=current_player;
-    }
-    next();
+      if(turn()){
+        if(current_player->_isWinner()){
+            _winner=current_player;
+        }
+        next();
+      }
+      else{
+        if(current_player->_isWinner()){
+            _winner=current_player;
+        }
+        specialNext();
+      }
   }
   winPrint();
 

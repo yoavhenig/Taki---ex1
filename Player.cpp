@@ -18,16 +18,16 @@ bool Player::play(Card& current_card){
     if(move>(int)v_cards.size()||move<=0){
       Card c=generate_card();
       v_cards.push_back(c);
-      return 1;
+      return 0;
     }
     else{
       current_card=v_cards.at(move-1);
       v_cards.erase(v_cards.begin()+(move-1));
     }
-  return 0;
+  return 1;
 };
 
 bool Player::_isWinner(){
-  if(num_of_cards==0){return true;}
+  if(v_cards.size()==0){return true;}
   return false;
 }

@@ -15,9 +15,14 @@ private:
 	vector<Player> v_players;
 
 	void init();
-	void turn();
+	bool turn();
 	void next();
+	void specialNext();
+	bool dir=0;
 	void winPrint();
+
+	Game(const Game& game){};
+	Game operator=(const Game& game){return *this;} //prevent default copy
 
 public:
 	//public members and functions
