@@ -2,21 +2,30 @@
 
 inline void verify(int c_p_num){// check the players or cards positive
   if(c_p_num<=0){
-    throw invalid_argument("illeggal numbers of players or cards! must be bigger than 0");
+    //throw invalid_argument("illeggal numbers of players or cards! must be bigger than 0");
+    throw 20;
   }
 }
 
 
 void Game::init(){
-  cout << "========== Welcome to TAKI ==========" << '\n'<<'\n';
   cout << "How many players?" << '\n';
   cin >> p_num; //private member p_num is players
   verify(p_num);
+  // if(p_num<=0){
+  //   std::cout << "illeggal numbers of players or cards! must be bigger than 0" << '\n';
+  //   return;
+  // }
   int c_num;
   std::cout << "How many cards?" << '\n';
   std::cin >> c_num;
   verify(c_num);
-
+  // if(c_num<=0){
+  //   std::cout << "illeggal numbers of players or cards! must be bigger than 0" << '\n';
+  //   return;
+  // }
+  current_index=0; //first player
+  dir=0;  //direction is forward
   for (auto i = 0; i < p_num; i++) {
     string name;
     cout << "player number "<<i+1<<" name?\n";
@@ -65,14 +74,16 @@ void Game::next(){  //check who is next method
 }
 
 void Game::winPrint(){
-    cout << '\n'<<_winner->getName()<<" wins!" << '\n';
+    cout << _winner->getName()<<" wins!" << '\n';
 }
 
 
 void Game::start(){
-  _winner=nullptr; //no one is winner at that point
+  _winner=NULL; //no one is winner at that point
+try{
   init(); //method to start the game and restart fields
-
+}
+catch(int e){return;}
   while(!_winner){
     std::cout << "current: " <<current_card<<'\n';
       if(turn()){

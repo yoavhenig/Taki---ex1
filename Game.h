@@ -1,5 +1,6 @@
 #ifndef GAME_H
 #define GAME_H
+#include<vector>
 #include "Player.h"
 #include "Card.h"
 using namespace std;
@@ -10,7 +11,7 @@ private:
 	Player* current_player;
 	Player* _winner;
 	Card current_card;
-	int current_index=0;
+	int current_index;
 	int p_num;
 	vector<Player> v_players;
 
@@ -18,7 +19,7 @@ private:
 	bool turn();
 	void next();
 	void specialNext();
-	bool dir=0;
+	bool dir;
 	void winPrint();
 
 	Game(const Game& game){};

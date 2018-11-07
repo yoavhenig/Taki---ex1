@@ -6,7 +6,7 @@ bool Player::play(Card& current_card){
   std::cout << getName() <<", your turn - "<< '\n';
   std::cout << "Your cards: ";
   for (size_t i = 0; i <v_cards.size(); i++) {
-    std::cout << "("<<i+1<<")"<<v_cards.at(i) << ", ";
+    std::cout << "("<<i+1<<")"<<v_cards.at(i) <<" ";
   }
   std::cout << '\n';
   std::cin >> move;
